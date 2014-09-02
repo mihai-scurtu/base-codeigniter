@@ -69,6 +69,14 @@ class MY_Model extends CI_Model {
 		return $this->prep_results($query);
 	}
 
+	public function get_one_where($where, $p = array()) {
+		$p['limit'] = 1;
+		$p['offset'] = 0;
+
+		$items = $this->get_where($where, $p);
+		return $items[0];
+	}
+
 	// get entries by field value(s)
 	public function get_by($field, $value, $p = array()) {
 		$p = array_merge($this->defaults, $p);
@@ -92,6 +100,14 @@ class MY_Model extends CI_Model {
 
 		$query = $this->db->get($this->table, $p['limit'], $p['offset']);
 		return $this->prep_results($query);
+	}
+
+	public function get_one_by($field, $value, $p = array()) {
+		$p['limit'] = 1;
+		$p['offset'] = 0;
+
+		$items = $this->get_by($field, $value, $p);
+		return $items[0];
 	}
 
 	// assume data is validated
