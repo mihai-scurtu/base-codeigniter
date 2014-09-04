@@ -114,6 +114,8 @@ class MY_Model extends CI_Model {
 	public function insert($data) {
 		$values = $this->prep_data($data);
 
+		if(!count($values)) return null;
+
 		$this->db->set($values);
 		$this->db->insert($this->table);
 
@@ -123,6 +125,8 @@ class MY_Model extends CI_Model {
 	// assume data is validated
 	public function update($id, $data) {
 		$values = $this->prep_data($data);
+
+		if(!count($values)) return null;
 
 		$this->db->set($values);
 		$this->db->where($this->pk, $id);
