@@ -1,6 +1,9 @@
 {
-	"name": "my-project",
-	"version": "0.0.1",
-	"dependencies": {
-	}
+  "name": "my-project",
+  "version": "0.0.1",
+  "dependencies": {
+    "bootstrap": "~3.2.0",
+    "fancybox": "~2.1.5",
+    "modernizr": "~2.8.3"
+  }
 }
